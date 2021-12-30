@@ -18,14 +18,6 @@ syntax = "proto3";
 
 message Keypress {
   string id = 1;
-  string label = 2;
-  bool default = 3;
-  string help = 4;
-  string form_id = 5;
-
-  // If true, this is a form submission keypress. The frontend will defer
-  // sending updates for all widgets inside the keypress's form until
-  // the keypress is pressed.
-  bool is_form_submitter = 6;
-  bool disabled = 7;
+  string form_id = 2;
+  bool disabled = 3;
 }

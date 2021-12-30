@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-import React, { ReactElement } from "react"
+import React, { ReactElement, useEffect } from "react"
 import { Keypress as KeypressProto } from "src/autogen/proto"
 import { WidgetStateManager } from "src/lib/WidgetStateManager"
 
@@ -28,13 +28,23 @@ export interface Props {
 
 function Keypress(props: Props): ReactElement {
   const { disabled, element, widgetMgr, width } = props
-  const style = { width }
 
-  return (
-    <div className="row-widget" style={style}>
-      Hello i'm keypress lol
-    </div>
-  )
+  useEffect(() => {
+    // Listen for any keypress in the entire application
+    const eventListenerFunction = (e: KeyboardEvent) => {
+      widgetMgr.setStringValue(element, e.key, {
+        fromUi: true,
+      })
+    }
+
+    document.addEventListener("keypress", eventListenerFunction, false)
+    return () => {
+      document.removeEventListener("keypress", eventListenerFunction, false)
+    }
+  }, [])
+
+  // This isn't a visual component
+  return <></>
 }
 
 export default Keypress
