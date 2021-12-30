@@ -31,6 +31,7 @@ from streamlit.logger import get_logger
 
 from streamlit.elements.balloons import BalloonsMixin
 from streamlit.elements.button import ButtonMixin
+from streamlit.elements.keypress import KeypressMixin
 from streamlit.elements.markdown import MarkdownMixin
 from streamlit.elements.text import TextMixin
 from streamlit.elements.alert import AlertMixin
@@ -107,6 +108,7 @@ class DeltaGenerator(
     HelpMixin,
     IframeMixin,
     ImageMixin,
+    KeypressMixin,
     LayoutsMixin,
     MarkdownMixin,
     MapMixin,

@@ -20,6 +20,7 @@ import {
   Audio as AudioProto,
   BokehChart as BokehChartProto,
   Button as ButtonProto,
+  Keypress as KeypressProto,
   DownloadButton as DownloadButtonProto,
   Checkbox as CheckboxProto,
   ColorPicker as ColorPickerProto,
@@ -82,6 +83,7 @@ import {
 } from "./utils"
 
 import { StyledElementContainer } from "./styled-components"
+import Keypress from "src/components/widgets/Keypress"
 
 // Lazy-load elements.
 const Audio = React.lazy(() => import("src/components/elements/Audio/"))
@@ -373,6 +375,14 @@ const RawElementNodeRenderer = (
         )
       }
       return <Button element={buttonProto} width={width} {...widgetProps} />
+    }
+
+    case "keypress": {
+      const keypressProto = node.element.keypress as KeypressProto
+      widgetProps.disabled = widgetProps.disabled || keypressProto.disabled
+      return (
+        <Keypress element={keypressProto} width={width} {...widgetProps} />
+      )
     }
 
     case "downloadButton": {

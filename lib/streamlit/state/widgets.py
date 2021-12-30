@@ -24,6 +24,7 @@ from streamlit import report_thread
 from streamlit import util
 from streamlit.errors import DuplicateWidgetID
 from streamlit.proto.Button_pb2 import Button
+from streamlit.proto.Keypress_pb2 import Keypress
 from streamlit.proto.Checkbox_pb2 import Checkbox
 from streamlit.proto.ClientState_pb2 import ClientState
 from streamlit.proto.ColorPicker_pb2 import ColorPicker
@@ -53,6 +54,7 @@ from streamlit.state.session_state import (
 # Protobuf types for all widgets.
 WidgetProto = Union[
     Button,
+    Keypress,
     Checkbox,
     ColorPicker,
     ComponentInstance,
@@ -183,6 +185,7 @@ def register_widget(
 # table here being slightly inaccurate should never pose a problem.
 element_type_to_value_type = {
     "button": "trigger_value",
+    "keypress": "string_value",
     "download_button": "trigger_value",
     "checkbox": "bool_value",
     "color_picker": "string_value",
