@@ -32,9 +32,15 @@ function Keypress(props: Props): ReactElement {
   useEffect(() => {
     // Listen for any keypress in the entire application
     const eventListenerFunction = (e: KeyboardEvent) => {
-      widgetMgr.setStringValue(element, e.key, {
-        fromUi: true,
-      })
+      if (element.sticky) {
+        widgetMgr.setStringValue(element, e.key, {
+          fromUi: true,
+        })
+      } else {
+        widgetMgr.setStringTriggerValue(element, e.key, {
+          fromUi: true,
+        })
+      }
     }
 
     document.addEventListener("keypress", eventListenerFunction, false)

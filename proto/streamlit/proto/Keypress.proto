@@ -20,4 +20,5 @@ message Keypress {
   string id = 1;
   string form_id = 2;
   bool disabled = 3;
+  bool sticky = 4;
 }

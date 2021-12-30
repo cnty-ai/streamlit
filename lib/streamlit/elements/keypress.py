@@ -43,6 +43,7 @@ For more information, refer to the
 class KeypressMixin:
     def keypress(
         self,
+        sticky: bool = False,
         args: Optional[WidgetArgs] = None,
         kwargs: Optional[WidgetKwargs] = None,
         *,  # keyword-only arguments:
@@ -65,6 +66,7 @@ class KeypressMixin:
 
         keypress_proto = KeypressProto()
         keypress_proto.disabled = disabled
+        keypress_proto.sticky = sticky
 
         def deserialize_keypress(ui_value: str, widget_id: str = "") -> str:
             return ui_value or ""
