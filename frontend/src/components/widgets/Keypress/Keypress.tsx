@@ -44,6 +44,7 @@ function Keypress(props: Props): ReactElement {
   }, [])
 
   // This isn't a visual component
+  // TODO: negative margin, or don't display whatever is offsetting the rest of the app
   return <></>
 }
 

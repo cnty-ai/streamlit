@@ -320,6 +320,16 @@ export class WidgetStateManager {
     this.onWidgetValueChanged(widget.formId, source)
   }
 
+  public setStringTriggerValue(
+    widget: WidgetInfo,
+    value: string,
+    source: Source
+  ): void {
+    this.createWidgetState(widget, source).stringValue = value
+    this.onWidgetValueChanged(widget.formId, source)
+    this.createWidgetState(widget, source).stringValue = ""
+  }
+
   public setStringArrayValue(
     widget: WidgetInfo,
     value: string[],
