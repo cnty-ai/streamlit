@@ -68,6 +68,7 @@ import Markdown from "src/components/elements/Markdown/"
 import Metric from "src/components/elements/Metric/"
 import Table from "src/components/elements/Table/"
 import Text from "src/components/elements/Text/"
+import Keypress from "src/components/widgets/Keypress"
 import { ComponentInstance } from "src/components/widgets/CustomComponent/"
 import { Kind } from "src/components/shared/AlertContainer"
 import { VegaLiteChartElement } from "src/components/elements/ArrowVegaLiteChart/ArrowVegaLiteChart"
@@ -83,7 +84,6 @@ import {
 } from "./utils"
 
 import { StyledElementContainer } from "./styled-components"
-import Keypress from "src/components/widgets/Keypress"
 
 // Lazy-load elements.
 const Audio = React.lazy(() => import("src/components/elements/Audio/"))
